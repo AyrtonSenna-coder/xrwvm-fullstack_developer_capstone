@@ -6,11 +6,80 @@
     <title>Contact Us - Best Cars Dealership</title>
     <link rel="stylesheet" href="/static/style.css">
     <link rel="stylesheet" href="/static/bootstrap.min.css">
+    <style>
+        .contact-hero {
+            background: linear-gradient(135deg, #00ced1, #008b8b);
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .contact-hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        .contact-card {
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+            transition: transform 0.3s ease;
+        }
+        .contact-card:hover {
+            transform: translateY(-5px);
+        }
+        .contact-icon {
+            font-size: 2.5rem;
+            color: #00ced1;
+            margin-bottom: 15px;
+        }
+        .contact-info {
+            background: #f8f9fa;
+            padding: 40px;
+            border-radius: 15px;
+        }
+        .contact-detail {
+            margin-bottom: 25px;
+            padding-left: 30px;
+            position: relative;
+        }
+        .contact-detail i {
+            position: absolute;
+            left: 0;
+            top: 5px;
+            color: #00ced1;
+            font-size: 1.2rem;
+        }
+        .hours-list {
+            list-style: none;
+            padding: 0;
+        }
+        .hours-list li {
+            padding: 5px 0;
+            border-bottom: 1px solid #eee;
+        }
+        .hours-list li:last-child {
+            border-bottom: none;
+        }
+        .map-container {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .department-contact {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            border-left: 4px solid #00ced1;
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light" style="background-color: darkturquoise; height: 1in;">
         <div class="container-fluid">
-            <h2 style="padding-right: 5%;">Dealerships</h2>
+            <h2 style="padding-right: 5%;">Best Cars Dealership</h2>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -30,29 +99,131 @@
         </div>
     </nav>
 
-    <div class="container" style="width: 80%; margin: auto; margin-top: 5%;">
-        <div class="contact-header">
-            <h1>Contact Us</h1>
-            <p>We're here to assist you with all your automotive needs. Reach out to us via phone, email, or visit our dealership in person!</p>
+    <div class="contact-hero">
+        <div class="container">
+            <h1>Get In Touch</h1>
+            <p class="lead" style="font-size: 1.3rem;">We're here to help you find your perfect vehicle and provide exceptional service</p>
         </div>
-        <div class="contact-content">
-            <div class="contact-info">
-                <h2>Get in Touch</h2>
-                <p><strong>Address:</strong> 123 Auto Lane, Springfield, IL 62701</p>
-                <p><strong>Phone:</strong> (555) 123-4567</p>
-                <p><strong>Email:</strong> info@bestcars.com</p>
-                <p><strong>Business Hours:</strong></p>
-                <ul>
-                    <li>Monday - Friday: 9:00 AM - 6:00 PM</li>
-                    <li>Saturday: 10:00 AM - 4:00 PM</li>
-                    <li>Sunday: Closed</li>
-                </ul>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <!-- Contact Information -->
+            <div class="col-lg-4 mb-4">
+                <div class="contact-info">
+                    <h3 class="mb-4" style="color: #008b8b;">Contact Information</h3>
+                    
+                    <div class="contact-detail">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <h5>Address</h5>
+                        <p>123 Automotive Drive<br>Toronto, ON M1X 1S5<br>Canada</p>
+                    </div>
+                    
+                    <div class="contact-detail">
+                        <i class="fas fa-phone"></i>
+                        <h5>Phone</h5>
+                        <p>Main: (416) 555-0123<br>Sales: (416) 555-0124<br>Service: (416) 555-0125</p>
+                    </div>
+                    
+                    <div class="contact-detail">
+                        <i class="fas fa-envelope"></i>
+                        <h5>Email</h5>
+                        <p>info@bestcars.com<br>sales@bestcars.com<br>service@bestcars.com</p>
+                    </div>
+                    
+                    <div class="contact-detail">
+                        <i class="fas fa-clock"></i>
+                        <h5>Business Hours</h5>
+                        <ul class="hours-list">
+                            <li><strong>Monday - Friday:</strong> 9:00 AM - 8:00 PM</li>
+                            <li><strong>Saturday:</strong> 9:00 AM - 6:00 PM</li>
+                            <li><strong>Sunday:</strong> 11:00 AM - 5:00 PM</li>
+                            <li><strong>Service Department:</strong> Mon-Sat 7:30 AM - 6:00 PM</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
-            <div class="contact-map">
-                <h2>Find Us</h2>
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.835434509374!2d-89.65014818468147!3d39.78172197944094!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzlcNDEuOTAyNDIsLTg5LjY0ODE0OQ!5e0!3m2!1sen!2sus!4v1634567890123" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+
+            <!-- Map -->
+            <div class="col-lg-8 mb-4">
+                <div class="map-container">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2887.269250593229!2d-79.38394958449024!3d43.64526117912164!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882b34d68bf33a9b%3A0x15edd8c4de1c7581!2sCN%20Tower!5e0!3m2!1sen!2sca!4v1634567890123" 
+                        width="100%" 
+                        height="450" 
+                        style="border:0;" 
+                        allowfullscreen="" 
+                        loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+
+                <!-- Department Contacts -->
+                <div class="row mt-4">
+                    <div class="col-md-6">
+                        <div class="department-contact">
+                            <div class="contact-icon">
+                                <i class="fas fa-car"></i>
+                            </div>
+                            <h4>Sales Department</h4>
+                            <p>Looking for a new or pre-owned vehicle? Our sales team is ready to help you find the perfect car.</p>
+                            <p><strong>Email:</strong> sales@bestcars.com<br>
+                            <strong>Phone:</strong> (416) 555-0124</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="department-contact">
+                            <div class="contact-icon">
+                                <i class="fas fa-tools"></i>
+                            </div>
+                            <h4>Service Department</h4>
+                            <p>Schedule maintenance or repairs with our certified technicians. We service all makes and models.</p>
+                            <p><strong>Email:</strong> service@bestcars.com<br>
+                            <strong>Phone:</strong> (416) 555-0125</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="department-contact">
+                            <div class="contact-icon">
+                                <i class="fas fa-file-invoice-dollar"></i>
+                            </div>
+                            <h4>Financing</h4>
+                            <p>Get pre-approved for financing with competitive rates and flexible payment options.</p>
+                            <p><strong>Email:</strong> finance@bestcars.com<br>
+                            <strong>Phone:</strong> (416) 555-0126</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="department-contact">
+                            <div class="contact-icon">
+                                <i class="fas fa-headset"></i>
+                            </div>
+                            <h4>Customer Service</h4>
+                            <p>Have questions about your purchase or need assistance? Our customer service team is here to help.</p>
+                            <p><strong>Email:</strong> support@bestcars.com<br>
+                            <strong>Phone:</strong> (416) 555-0127</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Emergency Contact -->
+        <div class="row mt-4">
+            <div class="col-12">
+                <div class="alert alert-info text-center">
+                    <h4><i class="fas fa-exclamation-triangle me-2"></i>After-Hours Emergency</h4>
+                    <p class="mb-0">For urgent matters outside business hours, please call our emergency line at <strong>(416) 555-0199</strong></p>
+                </div>
             </div>
         </div>
     </div>
+
+    <footer class="bg-dark text-white py-4 mt-5">
+        <div class="container text-center">
+            <p class="mb-0">&copy; 2024 Best Cars Dealership. All rights reserved.</p>
+            <p class="mb-0">123 Automotive Drive, Toronto, ON M1X 1S5 | (416) 555-0123</p>
+        </div>
+    </footer>
 </body>
 </html>

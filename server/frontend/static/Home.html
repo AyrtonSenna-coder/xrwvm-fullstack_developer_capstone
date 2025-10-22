@@ -4,10 +4,69 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="static/style.css">
   <link rel="stylesheet" href="static/bootstrap.min.css">
+  <style>
+    .hero-section {
+      background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('/static/car-dealership-hero.jpg');
+      background-size: cover;
+      background-position: center;
+      color: white;
+      padding: 100px 0;
+      text-align: center;
+    }
+    .feature-card {
+      border: none;
+      border-radius: 15px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+      margin-bottom: 30px;
+    }
+    .feature-card:hover {
+      transform: translateY(-5px);
+    }
+    .feature-icon {
+      font-size: 3rem;
+      color: #00ced1;
+      margin-bottom: 20px;
+    }
+    .stats-section {
+      background-color: #f8f9fa;
+      padding: 60px 0;
+    }
+    .stat-number {
+      font-size: 2.5rem;
+      font-weight: bold;
+      color: #00ced1;
+    }
+    .btn-primary-custom {
+      background-color: #00ced1;
+      border-color: #00ced1;
+      color: white;
+      padding: 12px 30px;
+      font-size: 1.1rem;
+      border-radius: 30px;
+    }
+    .btn-primary-custom:hover {
+      background-color: #008b8b;
+      border-color: #008b8b;
+    }
+    .homepage_links {
+      margin-left: 15px;
+      text-decoration: none;
+      color: white !important;
+      font-weight: 500;
+    }
+    .homepage_links:hover {
+      color: #e0ffff !important;
+    }
+  </style>
 <script>
-
 const logout = async (e) => {
-//Include the code for logout here.
+  // Clear session storage
+  sessionStorage.removeItem("username");
+  sessionStorage.removeItem("token");
+  
+  // Redirect to home page
+  window.location.href = "/";
 };
 
 let checkSession = ()=>{
@@ -15,27 +74,27 @@ let checkSession = ()=>{
 
   if (curr_user && curr_user !== "") {
     document.getElementById("loginlogout").innerHTML = 
-    '<span class="homepage_links">' + curr_user +'</span>' +
-    '<a class="homepage_links" onclick="logout()" href="/">Logout</a>'
+    '<span class="homepage_links">Welcome, ' + curr_user +'</span>' +
+    '<a class="homepage_links" onclick="logout()" href="#" style="cursor: pointer;">Logout</a>'
   } else {
     document.getElementById("loginlogout").innerHTML = 
     '<a class="homepage_links" href="/login">Login</a>'+
-    '<a class="homepage_links"  href="/register">Register</a>'
+    '<a class="homepage_links" href="/register">Register</a>'
   }
- }
+}
 </script>
 </head>
 <body onload="checkSession()">
-<nav class="navbar navbar-expand-lg navbar-light" style="background-color:darkturquoise; height: 1in;">
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: darkturquoise; height: 1in;">
   <div class="container-fluid">
-    <h2 style="padding-right: 5%;">Dealerships</h2>
+    <h2 style="padding-right: 5%;">Best Cars Dealership</h2>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarText">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" style="font-size: larger;" aria-current="page" href="#">Home</a>
+          <a class="nav-link active" style="font-size: larger;" aria-current="page" href="/">Home</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" style="font-size: larger;" href="/about">About Us</a>
@@ -47,18 +106,98 @@ let checkSession = ()=>{
       <span class="navbar-text">
         <div class="loginlink" id="loginlogout">
         </div>
-        </span>
+      </span>
     </div>
   </div>
 </nav>
-<div style="display: flex;flex-direction: column;">
-<div class="card" style="width: 50%;margin-top: 50px;align-self: center;">
-  <img src="static/car_dealership.jpg" class="card-img-top" alt="...">
-  <div class="banner">
-    <h5>Welcome to our Dealerships!</h5>
-    <a href="/dealers" class="btn" style="background-color: aqua;margin:10px">View Dealerships</a>
+
+<!-- Hero Section -->
+<div class="hero-section">
+  <div class="container">
+    <h1 class="display-4 mb-4">Find Your Perfect Vehicle</h1>
+    <p class="lead mb-4">Discover the best selection of new and pre-owned cars at unbeatable prices</p>
+    <a href="/dealers" class="btn btn-primary-custom btn-lg">Browse Inventory</a>
   </div>
 </div>
+
+<!-- Features Section -->
+<div class="container my-5">
+  <div class="row text-center mb-5">
+    <div class="col-12">
+      <h2>Why Choose Best Cars Dealership?</h2>
+      <p class="lead">We're committed to making your car buying experience exceptional</p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-4">
+      <div class="card feature-card text-center p-4">
+        <div class="feature-icon">🚗</div>
+        <h4>Wide Selection</h4>
+        <p>Choose from hundreds of new and pre-owned vehicles from top brands</p>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card feature-card text-center p-4">
+        <div class="feature-icon">💰</div>
+        <h4>Best Prices</h4>
+        <p>Competitive pricing and flexible financing options for every budget</p>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card feature-card text-center p-4">
+        <div class="feature-icon">🔧</div>
+        <h4>Quality Service</h4>
+        <p>Expert maintenance and repair services from certified technicians</p>
+      </div>
+    </div>
+  </div>
 </div>
+
+<!-- Stats Section -->
+<div class="stats-section">
+  <div class="container">
+    <div class="row text-center">
+      <div class="col-md-3 mb-4">
+        <div class="stat-number">500+</div>
+        <p>Vehicles in Stock</p>
+      </div>
+      <div class="col-md-3 mb-4">
+        <div class="stat-number">20+</div>
+        <p>Years of Experience</p>
+      </div>
+      <div class="col-md-3 mb-4">
+        <div class="stat-number">10,000+</div>
+        <p>Happy Customers</p>
+      </div>
+      <div class="col-md-3 mb-4">
+        <div class="stat-number">98%</div>
+        <p>Customer Satisfaction</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Call to Action -->
+<div class="container my-5">
+  <div class="row">
+    <div class="col-12 text-center">
+      <h2 class="mb-4">Ready to Find Your Dream Car?</h2>
+      <p class="lead mb-4">Visit our dealership today or browse our online inventory</p>
+      <div class="d-flex justify-content-center gap-3 flex-wrap">
+        <a href="/dealers" class="btn btn-primary-custom">View All Dealerships</a>
+        <a href="/static/Contact.html" class="btn btn-outline-secondary btn-lg">Contact Us</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer class="bg-dark text-white py-4 mt-5">
+  <div class="container text-center">
+    <p class="mb-0">&copy; 2024 Best Cars Dealership. All rights reserved.</p>
+    <p class="mb-0">123 Automotive Drive, Toronto, ON M1X 1S5 | (416) 555-0123</p>
+  </div>
+</footer>
+
 </body>
 </html>

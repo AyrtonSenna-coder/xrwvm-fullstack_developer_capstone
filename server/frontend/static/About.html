@@ -6,11 +6,64 @@
     <title>About Us - Best Cars Dealership</title>
     <link rel="stylesheet" href="/static/style.css">
     <link rel="stylesheet" href="/static/bootstrap.min.css">
+    <style>
+        .team-section {
+            display: flex;
+            flex-direction: row;
+            margin: 20px auto;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .team-card {
+            width: 30%;
+            min-width: 300px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        .team-card img {
+            width: 100%;
+            height: 450px;
+            object-fit: cover;
+        }
+        .card-body {
+            padding: 20px;
+        }
+        .title {
+            font-weight: bold;
+            font-size: 1.2em;
+            margin-bottom: 5px;
+        }
+        .banner {
+            background: linear-gradient(135deg, #00ced1, #008b8b);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            border-radius: 10px 10px 0 0;
+        }
+        .banner h1 {
+            margin-bottom: 20px;
+            font-size: 2.5em;
+        }
+        .banner p {
+            font-size: 1.2em;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .company-info {
+            padding: 40px;
+            background-color: #f8f9fa;
+            margin: 20px 0;
+            border-radius: 10px;
+        }
+    </style>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light" style="background-color: darkturquoise; height: 1in;">
         <div class="container-fluid">
-            <h2 style="padding-right: 5%;">Dealerships</h2>
+            <h2 style="padding-right: 5%;">Best Cars Dealership</h2>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -30,40 +83,78 @@
         </div>
     </nav>
 
-    <div class="card" style="width: 80%; margin: auto; margin-top: 5%;">
+    <div class="card" style="width: 90%; margin: auto; margin-top: 3%; border: none;">
         <div class="banner" name="about-header">
-            <h1>About Us</h1>
-            <p>Welcome to Best Cars Dealership, your premier destination for quality vehicles in North America. Established in 1995, we pride ourselves on offering a curated selection of domestic and imported cars at competitive prices, backed by exceptional customer service.</p>
+            <h1>About Best Cars Dealership</h1>
+            <p>Welcome to Best Cars Dealership, home to the best cars in North America. We deal in sale of domestic and imported cars at reasonable prices.</p>
+            <p>For over 20 years, we've been committed to providing exceptional vehicles and unparalleled customer service.</p>
         </div>
-        <div style="display: flex; flex-direction: row; margin: 20px auto; gap: 20px;">
-            <div class="card" style="width: 30%;">
-                <img class="card-img-top" src="/static/person.jpg/person 2.jpg" alt="Ayrton Senna">
+
+        <div class="company-info">
+            <div class="row">
+                <div class="col-md-6">
+                    <h3>Our Mission</h3>
+                    <p>To provide high-quality vehicles at competitive prices while delivering outstanding customer service that builds lifelong relationships.</p>
+                    <h3>Why Choose Us?</h3>
+                    <ul>
+                        <li>Wide selection of domestic and imported vehicles</li>
+                        <li>Competitive pricing and financing options</li>
+                        <li>Certified pre-owned vehicles with warranty</li>
+                        <li>Expert maintenance and repair services</li>
+                        <li>Customer satisfaction guarantee</li>
+                    </ul>
+                </div>
+                <div class="col-md-6">
+                    <h3>Our History</h3>
+                    <p>Founded in 2003, Best Cars Dealership started as a small family business with a vision to transform car buying into a pleasant, transparent experience. Today, we're one of the most trusted dealerships in the region, serving thousands of satisfied customers.</p>
+                    <h3>Location & Hours</h3>
+                    <p><strong>Address:</strong> 123 Automotive Drive, Toronto, ON M1X 1S5</p>
+                    <p><strong>Hours:</strong> Mon-Fri: 9AM-8PM, Sat: 9AM-6PM, Sun: 11AM-5PM</p>
+                    <p><strong>Phone:</strong> (416) 555-0123</p>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="text-center my-4">Meet Our Leadership Team</h2>
+        
+        <div class="team-section">
+            <div class="card team-card">
+                <img class="card-img-top" src="/static/person.jpg/person 2.jpg" alt="Ayrton Senna" onerror="this.src='https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=300&h=300&q=80'">
                 <div class="card-body">
                     <p class="title">Ayrton Senna</p>
-                    <p>CEO & Founder</p>
-                    <p class="card-text">Ayrton brings over 25 years of automotive expertise, leading our team with a passion for excellence and customer satisfaction.</p>
+                    <p><strong>CEO & Founder</strong></p>
+                    <p class="card-text">Ayrton brings over 25 years of automotive expertise, leading our team with a passion for excellence and customer satisfaction. His vision drives our commitment to quality and service.</p>
                     <p>ayrton.senna@bestcars.com</p>
                 </div>
             </div>
-            <div class="card" style="width: 30%;">
-                <img class="card-img-top" src="/static/person.jpg/person 1.jpg" alt="Joy Senna">
+            
+            <div class="card team-card">
+                <img class="card-img-top" src="/static/person.jpg/person 1.jpg" alt="Joy Senna" onerror="this.src='https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=300&h=300&q=80'">
                 <div class="card-body">
                     <p class="title">Joy Senna</p>
-                    <p>Sales Manager</p>
-                    <p class="card-text">Joy ensures a seamless car-buying experience, guiding customers with transparency and care.</p>
+                    <p><strong>Sales Manager</strong></p>
+                    <p class="card-text">Joy ensures a seamless car-buying experience, guiding customers with transparency and care. Her dedication to customer satisfaction has earned us countless repeat customers.</p>
                     <p>joy.senna@bestcars.com</p>
                 </div>
             </div>
-            <div class="card" style="width: 30%;">
-                <img class="card-img-top" src="/static/person.jpg/person 3 (2).jpg" alt="Vera Pikin">
+            
+            <div class="card team-card">
+                <img class="card-img-top" src="/static/person.jpg/person 3 (2).jpg" alt="Vera Pikin" onerror="this.src='https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=300&h=300&q=80'">
                 <div class="card-body">
                     <p class="title">Vera Pikin</p>
-                    <p>Service Manager</p>
-                    <p class="card-text">Vee oversees our top-tier service department, ensuring every vehicle meets our high standards.</p>
+                    <p><strong>Service Manager</strong></p>
+                    <p class="card-text">Vera oversees our top-tier service department, ensuring every vehicle meets our high standards. Her technical expertise guarantees your vehicle receives the best care possible.</p>
                     <p>vera.pikin@bestcars.com</p>
                 </div>
             </div>
         </div>
     </div>
+
+    <footer class="bg-dark text-white py-4 mt-5">
+        <div class="container text-center">
+            <p class="mb-0">&copy; 2024 Best Cars Dealership. All rights reserved.</p>
+            <p class="mb-0">123 Automotive Drive, Toronto, ON M1X 1S5 | (416) 555-0123</p>
+        </div>
+    </footer>    
 </body>
 </html>
