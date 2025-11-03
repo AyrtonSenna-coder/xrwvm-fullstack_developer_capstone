@@ -60,11 +60,12 @@
     }
   </style>
 <script>
+
 const logout = async (e) => {
   // Clear session storage
   sessionStorage.removeItem("username");
   sessionStorage.removeItem("token");
-  
+   
   // Redirect to home page
   window.location.href = "/";
 };
