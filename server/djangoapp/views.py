@@ -3,7 +3,8 @@ from django.contrib.auth import login, authenticate   # <-- UNCOMMENT (already t
 import logging
 import json
 from django.views.decorators.csrf import csrf_exempt
-# from .populate import initiate
+from .models import CarMake, CarModel
+from .populate import initiate
 
 
 # Get an instance of a logger
@@ -61,3 +62,18 @@ def registration(request):
     )
     login(request, user)   # auto-login after registration
     return JsonResponse({"userName": username, "status": "Authenticated"})
+
+
+def get_cars(request):
+    count = CarMake.objects.count()
+    print(f"CarMake count: {count}")
+    if count == 0:
+        initiate()
+    car_models = CarModel.objects.select_related('car_make')
+    cars = []
+    for car_model in car_models:
+        cars.append({
+            "CarModel": car_model.name,
+            "CarMake": car_model.car_make.name
+        })
+    return JsonResponse({"CarModels": cars})
