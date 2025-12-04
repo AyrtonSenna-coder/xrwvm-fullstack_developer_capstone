@@ -115,3 +115,24 @@ def get_dealer_reviews(request, dealer_id):
     else:
         return JsonResponse({"status": 400, "message": "Bad Request"})
 
+
+# ADD THIS EXACT FUNCTION — COPY-PASTE AT THE END OF views.py
+@csrf_exempt
+def add_review(request):
+    if not request.user.is_authenticated:
+        return JsonResponse({"status": 403, "message": "Unauthorized"}, status=403)
+
+    if request.method == "POST":
+        try:
+            data = json.loads(request.body)
+            # This function is already in restapis.py — it posts to Cloudant
+            result = post_review(data)
+            
+            if "error" in result:
+                return JsonResponse({"status": 500, "message": result["error"]}, status=500)
+            
+            return JsonResponse({"status": 200, "message": "Review added successfully"})
+        except Exception as e:
+            return JsonResponse({"status": 500, "message": str(e)}, status=500)
+    
+    return JsonResponse({"status": 405, "message": "Method not allowed"}, status=405)

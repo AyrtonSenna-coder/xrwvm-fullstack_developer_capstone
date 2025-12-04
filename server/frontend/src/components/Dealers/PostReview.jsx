@@ -21,47 +21,52 @@ const PostReview = () => {
   let review_url = root_url+`djangoapp/add_review`;
   let carmodels_url = root_url+`djangoapp/get_cars`;
 
-  const postreview = async ()=>{
-    let name = sessionStorage.getItem("firstname")+" "+sessionStorage.getItem("lastname");
-    //If the first and second name are stores as null, use the username
-    if(name.includes("null")) {
+  const postreview = async () => {
+    let name = sessionStorage.getItem("firstname") + " " + sessionStorage.getItem("lastname");
+    if (name.includes("null")) {
       name = sessionStorage.getItem("username");
     }
-    if(!model || review === "" || date === "" || year === "" || model === "") {
-      alert("All details are mandatory")
+  
+    if (!model || !review || !date || !year) {
+      alert("All fields are required!");
       return;
     }
-
-    let model_split = model.split(" ");
-    let make_chosen = model_split[0];
-    let model_chosen = model_split[1];
-
-    let jsoninput = JSON.stringify({
-      "name": name,
-      "dealership": id,
-      "review": review,
-      "purchase": true,
-      "purchase_date": date,
-      "car_make": make_chosen,
-      "car_model": model_chosen,
-      "car_year": year,
-    });
-
-    console.log(jsoninput);
-    const res = await fetch(review_url, {
-      method: "POST",
-      headers: {
+  
+    const [make_chosen, model_chosen] = model.split(" ");
+  
+    const jsoninput = {
+      name: name,
+      dealership: parseInt(id),           // ← Must be integer!
+      review: review,
+      purchase: true,
+      purchase_date: date,
+      car_make: make_chosen,
+      car_model: model_chosen,
+      car_year: parseInt(year),
+    };
+  
+    try {
+      const res = await fetch(review_url, {
+        method: "POST",
+        headers: {
           "Content-Type": "application/json",
-      },
-      body: jsoninput,
-  });
-
-  const json = await res.json();
-  if (json.status === 200) {
-      window.location.href = window.location.origin+"/dealer/"+id;
-  }
-
-  }
+        },
+        body: JSON.stringify(jsoninput),
+      });
+  
+      const result = await res.json();
+  
+      if (res.ok || result.status === 200) {
+        alert("Review posted successfully!");
+        window.location.href = `/dealer/${id}`;
+      } else {
+        alert("Failed: " + (result.message || "Unknown error"));
+      }
+    } catch (error) {
+      console.error(error);
+      alert("Network error. Check console.");
+    }
+  };
   const get_dealer = async ()=>{
     const res = await fetch(dealer_url, {
       method: "GET"
